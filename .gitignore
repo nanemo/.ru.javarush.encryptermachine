@@ -2,4 +2,3 @@
 .idea/
 *.iml
 *.class
-/out/production/ru.javarush.golf.nadirli.cryptanalyzer/META-INF/ru.javarush.golf.nadirli.cryptanalyzer.kotlin_module
