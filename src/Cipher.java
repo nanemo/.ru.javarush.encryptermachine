@@ -62,12 +62,14 @@ public class Cipher {
         FileReaderAndWriter.writerByte(dstAddress, result.toString());
     }
 
-    public void bruteForce(String cipherAddress, String dstAddress, int key) {
+    public void bruteForce(String cipherAddress, String dstAddress) {
         Scanner scanner = new Scanner(System.in);
         boolean proses = true;
-        int movingKey = scanner.nextInt();
         while (proses) {
+            System.out.println("Выберай ключа: ");
+            int key = scanner.nextInt();
             System.out.println(Menu.getBruteForceMenu());
+            int movingKey = scanner.nextInt();
             switch (movingKey) {
                 case 1:
                     System.out.println("Вы начели проверку перемешая буквы в правую сторону, количество шага будет - " + key);

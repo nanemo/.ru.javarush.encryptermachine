@@ -36,7 +36,7 @@ public class Run {
                     break;
                 case 3:
                     System.out.println("Взлом шифра начелось");
-                    cipherCaller.bruteForce(cipherAddress, dstAddress, key);
+                    cipherCaller.bruteForce(cipherAddress, dstAddress);
                     break;
                 case 4:
                     System.out.println("Система выключена");
