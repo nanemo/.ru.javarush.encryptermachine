@@ -67,6 +67,7 @@ public class Cipher {
         boolean proses = true;
         int movingKey = scanner.nextInt();
         while (proses) {
+            System.out.println(Menu.getBruteForceMenu());
             switch (movingKey) {
                 case 1:
                     System.out.println("Вы начели проверку перемешая буквы в правую сторону, количество шага будет - " + key);

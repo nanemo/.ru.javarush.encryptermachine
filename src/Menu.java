@@ -19,4 +19,8 @@ public class Menu {
     public static String getLogin() {
         return login;
     }
+
+    public static String getBruteForceMenu() {
+        return bruteForceMenu;
+    }
 }
