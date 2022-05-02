@@ -9,7 +9,8 @@ public class Menu {
 
     private static String bruteForceMenu = "Выберите шаг направлении поиска" +
             "\n - На лево наберите 1" +
-            "\n - для направо наберите 2";
+            "\n - для направо наберите 2" +
+            "\n - для выхода набери 3";
 
 
     public static String getMenu() {
@@ -18,5 +19,9 @@ public class Menu {
 
     public static String getLogin() {
         return login;
+    }
+
+    public static String getBruteForceMenu() {
+        return bruteForceMenu;
     }
 }
