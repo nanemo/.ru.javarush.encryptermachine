@@ -7,6 +7,11 @@ public class Menu {
             "\n4. Выйти";
     private static String login = "Наберите пароль что бы войти в систему: ";
 
+    private static String bruteForceMenu = "Выберите шаг направлении поиска" +
+            "\n - На лево наберите 1" +
+            "\n - для направо наберите 2";
+
+
     public static String getMenu() {
         return menu;
     }

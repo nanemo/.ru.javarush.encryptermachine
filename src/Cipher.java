@@ -1,6 +1,6 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Cipher {
 
@@ -19,8 +19,8 @@ public class Cipher {
                 int marksIndex = marks.indexOf(character);
                 marksIndex = marksIndex + key;
                 if (marksIndex > (marks.size() - 1)) {
-                    int marksNewIndex = marksIndex - (marks.size()-1);
-                    result.append(marks.get(marksNewIndex-1));
+                    int marksNewIndex = marksIndex - (marks.size() - 1);
+                    result.append(marks.get(marksNewIndex - 1));
                 } else {
                     result.append(marks.get(marksIndex));
                 }
@@ -35,7 +35,6 @@ public class Cipher {
             }
         }
         FileReaderAndWriter.writerByte(dstAddress, result.toString());
-        System.out.println();
     }
 
     public void deCoder(String cipherAddress, String dstAddress, int key) {
@@ -61,6 +60,30 @@ public class Cipher {
             }
         }
         FileReaderAndWriter.writerByte(dstAddress, result.toString());
+    }
+
+    public void bruteForce(String cipherAddress, String dstAddress, int key) {
+        Scanner scanner = new Scanner(System.in);
+        boolean proses = true;
+        int movingKey = scanner.nextInt();
+        while (proses) {
+            switch (movingKey) {
+                case 1:
+                    System.out.println("Вы начели проверку перемешая буквы в правую сторону, количество шага будет - " + key);
+                    cipher(cipherAddress, dstAddress, key);
+                    break;
+                case 2:
+                    deCoder(cipherAddress, dstAddress, key);
+                    System.out.println("Вы начели проверку перемешая буквы в левую сторону, количество шага будет - " + key);
+                    break;
+                case 3:
+                    System.out.println("Вы вышли из метода взлома шифра.");
+                    proses = false;
+                    break;
+                default:
+                    System.out.println("Выберите правильный вариант");
+            }
+        }
     }
 }
 
