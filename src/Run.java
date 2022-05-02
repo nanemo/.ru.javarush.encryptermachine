@@ -8,6 +8,7 @@ public class Run {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         Cipher cipherCaller = new Cipher();
 
         System.out.println("Please enter source address:");
