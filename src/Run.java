@@ -2,24 +2,24 @@ import java.util.Scanner;
 
 public class Run {
 
-    public static String srcAddress = "C:\\Users\\nnbak\\Desktop\\Test1.txt";
-    public static String cipherAddress = "C:\\Users\\nnbak\\Desktop\\Test2.txt";
-    public static String dstAddress = "C:\\Users\\nnbak\\Desktop\\Test3.txt";
-    private static int key;
+    public static String srcAddress;
+    public static String cipherAddress;
+    public static String dstAddress;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         Cipher cipherCaller = new Cipher();
 
-//        System.out.println("Please enter source address:");
-//        srcAddress = scanner.nextLine();
-//        System.out.println("Please enter address for cipher:");
-//        cipherAddress = scanner.nextLine();
-//        System.out.println("Please enter destination address:");
-//        dstAddress = scanner.nextLine();
+        System.out.println("Please enter source address:");
+        srcAddress = scanner.nextLine();
+        System.out.println("Please enter address for ciphing:");
+        cipherAddress = scanner.nextLine();
+        System.out.println("Please enter destination address:");
+        dstAddress = scanner.nextLine();
 
         System.out.println("Please enter key:");
-        key = scanner.nextInt();
+        int key = scanner.nextInt();
 
         boolean proses = true;
 
@@ -35,7 +35,8 @@ public class Run {
                     cipherCaller.deCoder(cipherAddress, dstAddress, key);
                     break;
                 case 3:
-                    System.out.println("Анализатор включен");
+                    System.out.println("Взлом шифра начелось");
+                    cipherCaller.bruteForce(cipherAddress, dstAddress, key);
                     break;
                 case 4:
                     System.out.println("Система выключена");
