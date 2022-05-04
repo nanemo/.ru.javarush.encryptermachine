@@ -7,9 +7,13 @@ public class Cipher {
     private static int minChar = 1040;
     private static int maxChar = 1104;
 
+    Addresses addresses = new Addresses();
     private static List<Character> marks = Arrays.asList('.', ',', '"', ':', '-', '!', '?', ' ');
 
-    public void cipher(String srcAddress, String dstAddress, int key) {
+    public void cipher() {
+        String srcAddress = addresses.getSrcAddress();
+        String dstAddress = addresses.getDstAddress();
+        int key = addresses.getKey();
 
         String message = FileReaderAndWriter.readerByte(srcAddress);
 
@@ -34,11 +38,14 @@ public class Cipher {
                 }
             }
         }
+        System.out.println("Encryption text is - " + result.toString());
         FileReaderAndWriter.writerByte(dstAddress, result.toString());
     }
 
-    public void deCoder(String cipherAddress, String dstAddress, int key) {
+    public void deCoder() {
+        String cipherAddress = addresses.getCipherAddress();
         String message = FileReaderAndWriter.readerByte(cipherAddress);
+        int key = addresses.getKey();
 
         StringBuilder result = new StringBuilder();
         for (char character : message.toCharArray()) {
@@ -59,32 +66,31 @@ public class Cipher {
                 result.append((char) hideCharNum);
             }
         }
-        FileReaderAndWriter.writerByte(dstAddress, result.toString());
+        System.out.println("Encrypting text is - " + result.toString());
+        FileReaderAndWriter.writerByte(addresses.getDstAddress(), result.toString());
     }
 
-    public void bruteForce(String cipherAddress, String dstAddress) {
+    public void bruteForce() {
         Scanner scanner = new Scanner(System.in);
         boolean proses = true;
         while (proses) {
-            System.out.println("Выберай ключа: ");
-            int key = scanner.nextInt();
             System.out.println(Menu.getBruteForceMenu());
             int movingKey = scanner.nextInt();
             switch (movingKey) {
                 case 1:
-                    System.out.println("Вы начели проверку перемешая буквы в правую сторону, количество шага будет - " + key);
-                    cipher(cipherAddress, dstAddress, key);
+                    System.out.println("You started moving alphabet to right - ");
+                    cipher();
                     break;
                 case 2:
-                    deCoder(cipherAddress, dstAddress, key);
-                    System.out.println("Вы начели проверку перемешая буквы в левую сторону, количество шага будет - " + key);
+                    System.out.println("You started moving alphabet to left - ");
+                    deCoder();
                     break;
                 case 3:
-                    System.out.println("Вы вышли из метода взлома шифра.");
+                    System.out.println("You exited from analysing");
                     proses = false;
                     break;
                 default:
-                    System.out.println("Выберите правильный вариант");
+                    System.out.println("Choose correct function");
             }
         }
     }
