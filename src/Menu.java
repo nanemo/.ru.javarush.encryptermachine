@@ -1,16 +1,16 @@
 public class Menu {
 
-    private static String menu = "Выберите функцию:" +
-            "\n1. Шифровать" +
-            "\n2. Расшифровать" +
-            "\n3. Анализатор" +
-            "\n4. Выйти";
-    private static String login = "Наберите пароль что бы войти в систему: ";
+    private static String menu = "Choose function:" +
+            "\n1. Encryption" +
+            "\n2. Decryption" +
+            "\n3. Analysing" +
+            "\n4. Exit";
+    private static String login = "Enter password: ";
 
-    private static String bruteForceMenu = "Выберите шаг направлении поиска" +
-            "\n - На лево наберите 1" +
-            "\n - для направо наберите 2" +
-            "\n - для выхода набери 3";
+    private static String bruteForceMenu = "Choose direction for moving" +
+            "\n - 1 - to right" +
+            "\n - 2 - to left" +
+            "\n - 3 - for exit";
 
 
     public static String getMenu() {
