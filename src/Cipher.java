@@ -21,7 +21,7 @@ public class Cipher {
         for (char character : message.toCharArray()) {
             if (marks.contains(character)) {
                 int marksIndex = marks.indexOf(character);
-                marksIndex = marksIndex + key;
+                marksIndex = marksIndex + 3;
                 if (marksIndex > (marks.size() - 1)) {
                     int marksNewIndex = marksIndex - (marks.size() - 1);
                     result.append(marks.get(marksNewIndex - 1));
@@ -51,7 +51,7 @@ public class Cipher {
         for (char character : message.toCharArray()) {
             if (marks.contains(character)) {
                 int marksIndex = marks.indexOf(character);
-                marksIndex = marksIndex - key;
+                marksIndex = marksIndex - 3;
                 if (marksIndex < 0) {
                     int marksNewIndex = marks.size() + marksIndex;
                     result.append(marks.get(marksNewIndex));
