@@ -6,6 +6,9 @@ import java.nio.file.Path;
 
 public class FileReaderAndWriter {
 
+    private FileReaderAndWriter(){
+    }
+
     public static String readerByte(String address) {
         StringBuilder result = new StringBuilder();
         Path file = Path.of(address);

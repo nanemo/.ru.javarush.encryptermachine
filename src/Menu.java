@@ -1,6 +1,8 @@
 public class Menu {
 
-    private static String menu = "Choose function:" +
+    private Menu(){}
+
+    private static String showMenu = "Choose function:" +
             "\n1. Encryption" +
             "\n2. Decryption" +
             "\n3. Analysing" +
@@ -13,8 +15,8 @@ public class Menu {
             "\n - 3 - for exit";
 
 
-    public static String getMenu() {
-        return menu;
+    public static String getShowMenu() {
+        return showMenu;
     }
 
     public static String getLogin() {

@@ -2,6 +2,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.System.*;
+
 public class Cipher {
 
     private static int minChar = 1040;
@@ -28,17 +30,15 @@ public class Cipher {
                 } else {
                     result.append(marks.get(marksIndex));
                 }
-            } else if (character != ' ') {
-                if (((int) character) >= minChar && ((int) character <= maxChar)) {
-                    int hideCharNum = (int) character + key;
-                    if (hideCharNum > maxChar) {
-                        hideCharNum = (hideCharNum - maxChar) + minChar;
-                    }
-                    result.append((char) hideCharNum);
+            } else if (character != ' ' && character >= minChar && (character <= maxChar)) {
+                int hideCharNum = character + key;
+                if (hideCharNum > maxChar) {
+                    hideCharNum = (hideCharNum - maxChar) + minChar;
                 }
+                result.append((char) hideCharNum);
             }
         }
-        System.out.println("Encryption text is - " + result.toString());
+        out.println("Encryption text is - " + result.toString());
         FileReaderAndWriter.writerByte(dstAddress, result.toString());
     }
 
@@ -58,15 +58,15 @@ public class Cipher {
                 } else {
                     result.append(marks.get(marksIndex));
                 }
-            } else if (((int) character) >= minChar && ((int) character <= maxChar)) {
-                int hideCharNum = (int) character - key;
+            } else if ((character >= minChar) && (character <= maxChar)) {
+                int hideCharNum = character - key;
                 if (hideCharNum < minChar) {
                     hideCharNum = maxChar - (minChar - hideCharNum);
                 }
                 result.append((char) hideCharNum);
             }
         }
-        System.out.println("Encrypting text is - " + result.toString());
+        out.println("Encrypting text is - " + result.toString());
         FileReaderAndWriter.writerByte(addresses.getDstAddress(), result.toString());
     }
 
@@ -74,23 +74,23 @@ public class Cipher {
         Scanner scanner = new Scanner(System.in);
         boolean proses = true;
         while (proses) {
-            System.out.println(Menu.getBruteForceMenu());
+            out.println(Menu.getBruteForceMenu());
             int movingKey = scanner.nextInt();
             switch (movingKey) {
                 case 1:
-                    System.out.println("You started moving alphabet to right - ");
+                    out.println("You started moving alphabet to right - ");
                     cipher();
                     break;
                 case 2:
-                    System.out.println("You started moving alphabet to left - ");
+                    out.println("You started moving alphabet to left - ");
                     deCoder();
                     break;
                 case 3:
-                    System.out.println("You exited from analysing");
+                    out.println("You exited from analysing");
                     proses = false;
                     break;
                 default:
-                    System.out.println("Choose correct function");
+                    out.println("Choose correct function");
             }
         }
     }
