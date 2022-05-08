@@ -36,6 +36,8 @@ public class Cipher {
                     hideCharNum = (hideCharNum - maxChar) + minChar;
                 }
                 result.append((char) hideCharNum);
+            }else{
+                result.append(character);
             }
         }
         out.println("Encryption text is - " + result.toString());
@@ -64,6 +66,8 @@ public class Cipher {
                     hideCharNum = maxChar - (minChar - hideCharNum);
                 }
                 result.append((char) hideCharNum);
+            } else{
+                result.append(character);
             }
         }
         out.println("Encrypting text is - " + result.toString());
