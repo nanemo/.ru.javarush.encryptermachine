@@ -20,6 +20,7 @@ public class Cipher {
         String message = FileReaderAndWriter.readerByte(srcAddress);
 
         StringBuilder result = new StringBuilder();
+
         for (char character : message.toCharArray()) {
             if (marks.contains(character)) {
                 int marksIndex = marks.indexOf(character);
@@ -45,6 +46,7 @@ public class Cipher {
     }
 
     public void deCoder() {
+
         String cipherAddress = addresses.getCipherAddress();
         String message = FileReaderAndWriter.readerByte(cipherAddress);
         int key = addresses.getKey();
