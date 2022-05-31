@@ -46,6 +46,7 @@ public class Cipher {
     }
 
     public void deCoder() {
+
         String cipherAddress = addresses.getCipherAddress();
         String message = FileReaderAndWriter.readerByte(cipherAddress);
         int key = addresses.getKey();
